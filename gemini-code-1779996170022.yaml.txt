@@ -1,0 +1,29 @@
+name: Production Deployment Pipeline
+
+on:
+  push:
+    branches: [ main ] # Triggers every time you merge code into your primary production branch
+
+jobs:
+  audit-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js Runtime environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Audit Backend Dependencies for Security Flaws
+        run: |
+          cd backend
+          npm ci
+          npm audit --audit-level=high
+
+      - name: Validate Production Build Compilation
+        run: |
+          cd ../frontend
+          npm ci
+          npm run build # Ensures Tailwind and Vite compile cleanly before shipping

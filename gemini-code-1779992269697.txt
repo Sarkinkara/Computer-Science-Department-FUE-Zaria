@@ -1,0 +1,5 @@
+PORT=5000
+DATABASE_URL=postgresql://db_app_user:StrongSecretHashPassword@prod-cluster.rds.amazonaws.com:5432/cs_elibrary
+JWT_SECRET=8fca1b96d5e182312b9d04838fbc91e774a2cd3d9e84b1219f7cc8c3b4012da7
+FRONTEND_URL=https://cs-elibrary.edu
+NODE_ENV=production

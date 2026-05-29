@@ -1,0 +1,26 @@
+Act as a Principal Solutions Architect and Senior Technical Writer. Write an exhaustive, production-grade Deployment, Architecture, and Operations Manual for the Computer Science Department E-Library Platform based on the decoupled file structure provided.
+
+The manual must include the following dedicated sections:
+
+1. ARCHITECTURAL BLUEPRINT & DATA FLOW
+- Map how the React SPA interacts with the Node.js Express API.
+- Detail the exact state lifecycle of the AIContextBubble component when a user highlights text, showing how it communicates with the `/api/ai/explain` endpoint.
+- Explain the data ingestion flow of the online compiler and how it isolates code execution requests.
+
+2. DATABASE ENVIRONMENT PROVISIONING
+- Provide a step-by-step guide to installing PostgreSQL, creating the database instance, and executing the 'backend/db/schema.sql' DDL script.
+- Include mock SQL 'INSERT' statements to seed the 'users' table with initial test accounts for each role (one student, one lecturer, one admin) ensuring passwords use valid bcrypt hashes.
+
+3. LOCAL DEVELOPMENT & ENVIRONMENT CONFIGURATION
+- Document precise commands to install dependencies, configure the '.env' file, and spin up both the backend and frontend development servers concurrently.
+- Detail how to verify that Tailwind CSS is processing the style utilities correctly via 'frontend/tailwind.config.js'.
+
+4. SECURITY & AUDITING HARDENING COMPLIANCE
+- Walk through the token verification mechanics inside 'backend/middleware/auth.js'.
+- Explain how the 'logAction' utility enforces the departmental security requirement to track who visits, when, and what assets they access.
+- Document how 'express-rate-limit' handles API throttling under high load.
+
+5. PRODUCTION DEPLOYMENT & VERIFICATION CHECKLIST
+- Outline production builds ('npm run build') and deployment considerations (e.g., configuring CORS, setting NODE_ENV=production, handling reverse proxies like Nginx, and managing SSL/TLS certificates).
+
+Ensure the tone is professional, technical, authoritative, and structured for immediate use by systems engineers.
